@@ -20,12 +20,49 @@
 .planInfo>i{
     font-size: x-large;
 }
-.buttons{
-    display: flex;
-    flex-direction: row;
-    
+body {
+    background-color: #1b1b1b;
+    color: #ffffff;
 }
-.googleButton,.githubButton,.facebookButton{
-    margin: 25px;
 
+.card {
+    background-color: #2a2a2a;
+    border: none;
+    border-radius: 10px;
+}
+
+.btn-warning {
+    background-color: #ffc107;
+    border: none;
+}
+
+.btn-dark {
+    background-color: #343a40;
+    color: #ffffff;
+}
+
+.btn-dark i {
+    margin-right: 5px;
+}
+
+input {
+    background-color: #333333;
+    color: #ffffff;
+    border: 1px solid #555555;
+}
+
+input::placeholder {
+    color: #999999;
+}
+
+hr {
+    border-color: #555555;
+}
+
+a {
+    color: #ffc107;
+}
+
+a:hover {
+    color: #e0a800;
 }

@@ -1,0 +1,31 @@
+.main{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.rightSide{
+    margin: 40px;
+}
+.heading{
+    display: flex;
+    flex-direction: row;
+}
+.heading>p{
+    align-items: center;
+    padding-top: 20px;
+    font-weight: 600;
+    font-size: large;
+}
+.planInfo>i{
+    font-size: x-large;
+}
+.buttons{
+    display: flex;
+    flex-direction: row;
+    
+}
+.googleButton,.githubButton,.facebookButton{
+    margin: 25px;
+
+}

@@ -66,3 +66,12 @@ a {
 a:hover {
     color: #e0a800;
 }
+.btn{
+    cursor: pointer;
+    /* background-position-x: 150%; */
+    transition: scale 0.5s;
+}
+.btn:hover{
+    /* animation: shimmer 1s forwards; */
+    scale: 1.1;
+}

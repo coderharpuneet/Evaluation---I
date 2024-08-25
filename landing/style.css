@@ -10,10 +10,29 @@
     min-width: 100%;
     min-height: 100%;
   }
+  .content {
+    position: fixed;
+    bottom: 0;
+    
+    width: 100%;
+    /* padding: 20px; */
+    text-align: center;
+    margin-bottom: 80px;
+    
+    letter-spacing: 5px;
+  }
+  .content h1{
+    font-size: 90px;
+  }
+  .content p{
+    font-size: 30px;
+  }
 body {
     margin: 0;
     padding: 0;
+    font-family: sans-serif;
     /* overflow: hidden; */
+    color: #f1f1f1;
 }
 
 nav {
@@ -55,5 +74,8 @@ nav .menu-text, nav .menu-text a {
 nav .menu-text a:hover {
     color: rgba(255,255,255,0.5);
 }
-
+.slide{
+    margin: top 100px;
+    /* position:fixed */
+}
 

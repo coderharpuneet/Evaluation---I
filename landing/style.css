@@ -34,6 +34,9 @@
     min-height: 100%;
     min-width: 100%;
     z-index: -9999;
+    filter: blur(50px);
+    -webkit-filter: blur(50px);
+  
   }
 body {
     margin: 0;

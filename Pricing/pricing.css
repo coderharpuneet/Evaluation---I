@@ -1,78 +1,107 @@
+.heading>h1{
+  align-items: center;
+  font-weight: bolder;
+  font-size: xx-large;
+}
+/* Container for pricing cards */
+.pricing-cards {
+  display: flex;
+  justify-content: center; /* Centers the cards horizontally */
+  align-items: center;    /* Aligns the cards vertically if needed */
+  gap: 2rem;              /* Adds space between the cards */
+  padding: 2rem;          /* Adds padding around the container */
+}
+
+/* Individual pricing card */
 .pricing-card {
-    &.active {
-      background: #1b1b1b;
-      color: #a3a3a3;
-    }
-  }
-  
-  hr {
-    display: block;
-    width: 36%;
-    margin: 0 auto;
-    margin-top: 1.8rem;
-    margin-bottom: 1.5rem;
-    visibility: visible;
-    &.first {
-      background: #d6d4d3;
-      height: 0.15rem;
-      border: none;
-    }
-    &.second {
-      background: #1b1b1b;
-      height: 0.25rem;
-      border: none;
-    }
-  }
-  
-  h3 {
-    color: #1b1b1b;
-    text-transform: uppercase;
-    font-size: 0.9rem;
-    letter-spacing: 0.063rem;
-  }
-  
-  .card-price {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 3rem;
-    font-weight: bold;
-    color: #1b1b1b;
-    margin: 1.5rem 0;
-    span {
-      color: #1b1b1b;
-      font-size: 1.1rem;
-      margin-right: 0.6rem;
-    }
-  }
-  
-  .card-btn {
-    background: #d6d4d3;
-    color: #1b1b1b;
-    text-transform: uppercase;
-    font-weight: bold;
-    font-size: 0.9rem;
-    padding: 0.5rem 1.8rem;
-    display: inline-block;
-    transition: opacity 0.3s ease-in;
-    visibility: hidden;
-    opacity: 0;
-  }
-  
-  .pricing-card.active {
-    .card-btn {
-      background: #fff;
-      opacity: 1;
-      margin-top: 2.8rem;
-      visibility: visible;
-    }
-    h3 {
-      color: #d6d4d3;
-    }
-    .card-price span {
-      color: #d6d4d3;
-    }
-    .card-price {
-      color: #fff;
-    }
-  }
+  width: 300px;          /* Set a fixed width for the cards */
+  padding: 1.5rem;        /* Adds padding inside the card */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Adds a subtle shadow for a lifted effect */
+  border-radius: 8px;     /* Slight rounding of corners */
+  background: #f8f9fa;    /* Background color for cards */
+  transition: background-color 0.3s ease; /* Smooth transition for background color */
+}
+
+/* Hover effect for card background */
+.pricing-card:hover {
+  background-color: black; /* Change background color on hover */
+}
+
+/* Styling for horizontal rules */
+hr.first {
+  background: #d6d4d3;
+  height: 0.15rem;
+  border: none;
+}
+
+hr.second {
+  background: #1b1b1b;
+  height: 0.25rem;
+  border: none;
+}
+
+/* Title styling */
+h3 {
+  color: #1b1b1b;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  letter-spacing: 0.063rem;
+  transition: color 0.3s ease;
+}
+
+
+/* Price styling */
+.card-price {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+  font-weight: bold;
+  color: #1b1b1b;
+  margin: 1.5rem 0;
+  transition: color 0.3s ease;
+}
+
+Hover effect for card title and price
+.pricing-card:hover h3,.card:hover ul
+.pricing-card:hover .card-price {
+  color: white; /* Change text color on hover */
+  background: #1b1b1b;
+}
+
+/* Currency symbol styling */
+.card-price span {
+  color: #1b1b1b;
+  font-size: 1.1rem;
+  margin-right: 0.6rem;
+  transition: color 0.3s ease;
+}
+
+/* Ensure currency symbol color changes to white on hover */
+/* .pricing-card:hover .card-price span {
+  color: white;
+}
+ */
+/* Button styling */
+.card-btn {
+  background: #d6d4d3;
+  color: #1b1b1b;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 0.9rem;
+  padding: 0.5rem 1.8rem;
+  display: inline-block;
+  transition: opacity 0.3s ease-in, background-color 0.3s ease, color 0.3s ease;
+  visibility: hidden;
+  opacity: 0;
+  text-align: center;
+  border-radius: 4px; /* Rounded button edges */
+}
+
+/* Hover effect for card button */
+.pricing-card:hover .card-btn {
+  background-color: #1b1b1b;
+  color: white;
+  visibility: visible;
+  opacity: 1;
+}

@@ -1,72 +1,78 @@
-/* pricing.css */
-body{
-    width: 100%;
+.pricing-card {
+    &.active {
+      background: #1b1b1b;
+      color: #a3a3a3;
+    }
+  }
+  
+  hr {
+    display: block;
+    width: 36%;
+    margin: 0 auto;
+    margin-top: 1.8rem;
+    margin-bottom: 1.5rem;
+    visibility: visible;
+    &.first {
+      background: #d6d4d3;
+      height: 0.15rem;
+      border: none;
+    }
+    &.second {
+      background: #1b1b1b;
+      height: 0.25rem;
+      border: none;
+    }
+  }
+  
+  h3 {
+    color: #1b1b1b;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    letter-spacing: 0.063rem;
+  }
+  
+  .card-price {
     display: flex;
     align-items: center;
     justify-content: center;
-
-}
-/* Style for carousel items */
-.carousel-inner img {
-    height: 300px;
-    object-fit: cover;
-    width: 100%;
-}
-
-/* Optional: Add custom padding and background for carousel captions */
-.carousel-caption {
-    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
-    padding: 15px;
-    border-radius: 10px;
-}
-
-/* Custom styles for the page */
-body {
-    font-family: Arial, sans-serif;
-}
-
-h3 {
+    font-size: 3rem;
     font-weight: bold;
-}
-
-/* Add custom spacing */
-.container {
-    margin-top: 30px;
-}
-
-/* Optional: Add custom styles for pricing section */
-.pricing-section {
-    background-color: #f9f9f9;
-    padding: 50px 0;
-}
-
-.pricing-card {
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    padding: 20px;
-    margin-bottom: 20px;
-    text-align: center;
-}
-
-.pricing-card h4 {
-    font-size: 24px;
-    margin-bottom: 20px;
-}
-
-.pricing-card p {
-    font-size: 16px;
-    color: #666;
-}
-
-.pricing-card .price {
-    font-size: 36px;
-    color: #333;
-    margin-bottom: 20px;
-}
-
-.pricing-card .btn {
-    background-color: #007bff;
-    color: #fff;
-    padding: 10px 20px;
-    border-radius: 5px;
-}
+    color: #1b1b1b;
+    margin: 1.5rem 0;
+    span {
+      color: #1b1b1b;
+      font-size: 1.1rem;
+      margin-right: 0.6rem;
+    }
+  }
+  
+  .card-btn {
+    background: #d6d4d3;
+    color: #1b1b1b;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 0.9rem;
+    padding: 0.5rem 1.8rem;
+    display: inline-block;
+    transition: opacity 0.3s ease-in;
+    visibility: hidden;
+    opacity: 0;
+  }
+  
+  .pricing-card.active {
+    .card-btn {
+      background: #fff;
+      opacity: 1;
+      margin-top: 2.8rem;
+      visibility: visible;
+    }
+    h3 {
+      color: #d6d4d3;
+    }
+    .card-price span {
+      color: #d6d4d3;
+    }
+    .card-price {
+      color: #fff;
+    }
+  }

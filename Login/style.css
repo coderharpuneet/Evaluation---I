@@ -6,7 +6,9 @@
    
   }
 html, body, .main{
-  background-color: #cbd2fe !important;
+  background: url("Frame\ 1.png");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
   /* height: 100vh; */
   margin: 0;
   padding: 0;
@@ -29,8 +31,7 @@ html, body, .main{
     transform: translate(-50%, -50%);
     width: 80%;
     height: 500px;
-    background-color: #cbd2fe;
-    background-color:darkcyan;
+   
     display: flex;
     justify-content: center;
     align-items: center;
@@ -169,7 +170,7 @@ html, body, .main{
     margin: 5px 0;
     padding-top: 5px;
   }
-  
+ 
   #btn:hover {
     background: rgba(0, 0, 0, 0.3);
     color: white;

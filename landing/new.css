@@ -1,0 +1,76 @@
+body, html {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+.hero-section {
+    background: url('bgp.jpg') no-repeat center center;
+    background-size: cover;
+    height: 100vh; /* Subtract the navbar height from the viewport height */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: brown;
+    position: relative;
+}
+
+
+.hero-section .container {
+    z-index: 2;
+}
+
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%; /* Match the new height of the .hero-section */
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+}
+
+.benefits-section h2,
+.languages-section h2 {
+    margin-bottom: 30px;
+    font-weight: bold;
+ }
+.benefits-section{
+    background-color: #ffdf96;
+    height: 100vh;
+}
+
+
+.benefit-list {
+    text-align: left; /* Align text to the left */
+    max-width: 600px; /* Optional: Set a max-width for the list */
+    margin: 0 auto; /* Center the list horizontally */
+}
+
+.benefit-item h4 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    margin-top: 60px;
+}
+
+.benefit-item p {
+    font-size: 1rem;
+    margin-bottom: 0;
+    
+}
+
+.language-item h5 {
+    margin: 0;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.features-section {
+    background-color: #ffdf96;
+}
+
+.footer {
+    background-color: #4a3e3e;
+    color: white;
+}

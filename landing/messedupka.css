@@ -1,0 +1,122 @@
+html, body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+  }
+  nav {
+    width: var(--menu-width);
+    display: flex;
+    transform-style: preserve-3d;
+    position: relative;
+    z-index: 1;
+    margin: 0px auto;
+    perspective: 2000px;
+    flex-wrap: wrap;
+    top: 0.5em;
+}
+
+nav .menu-item {
+    color: white;
+    font-weight: 600;
+    transform-style: preserve-3d;
+    flex-grow: 1;
+    display: flex;
+    flex-basis: var(--item-width);
+    box-sizing: border-box;
+    padding: 1em 1.5em;
+    justify-content: center;
+    perspective: 200px;
+    letter-spacing: 0.5px;
+    min-height: 7.5em;
+}
+
+nav .menu-text, nav .menu-text a {
+    font-size: 1em;
+    color: white;
+    text-decoration: none;
+    text-shadow: 0 1px 5px rgba(0,0,0,0.1);
+    transition: color 0.1s ease-out;
+    text-align: center;
+}
+
+nav .menu-text a:hover {
+    color: rgba(255,255,255,0.5);
+}
+.slide{
+    margin: top 100px;
+    /* height:1000px;background-color:red;font-size:36px */
+    /* position:fixed */
+    background-attachment: fixed;
+    background-size: 120% auto;
+    box-sizing: border-box;
+    
+    font-size: 3em;
+    height: 65vh;
+    margin: 6em 0;
+    /* overflow: hidden; */
+    vertical-align: middle;
+    height: 100vh;
+    overflow-y: scroll;
+    width: 100%; }
+
+
+
+
+  figure {
+    margin: 0;
+    position: relative;
+  }
+  video {
+    width: 100%;
+    max-width: 100%;
+    
+  }
+  .hero-wrapper {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    height: auto;
+    width: auto;
+    min-height: 100%;
+    min-width: 100%;
+    z-index: -9999;
+  }
+  .parallax-wraper {
+    height: 100vh;
+    overflow-y: scroll;
+    width: 100%;
+  }
+  .parallax-wraper .navigation {
+    height: 100vh;
+  }
+  .parallax-wraper .parallax {
+    background-attachment: fixed;
+    background-size: 120% auto;
+    box-sizing: border-box;
+    background-color: black;
+    color: aliceblue;
+    font-size: 2em;
+    /* height: 800px; */
+    margin: 6em 0;
+    overflow: hidden;
+    vertical-align: middle;
+}
+.parallax-wraper .content{
+  text-align: center;
+  height: 100vh;
+}
+.parallax-wraper .navigation .head{
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  margin-bottom: 80px;
+  letter-spacing: 5px;
+}
+.parallax-wraper .navigation .head p{
+  font-size: 30px;
+}
+.parallax-wraper .navigation .head{
+  font-size: 70px;
+}

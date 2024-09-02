@@ -1,0 +1,219 @@
+
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0px;
+  font-family: 'segoe ui';
+  
+}
+
+.nav {
+  height: 50px;
+  width: 100%;
+  background-color: #2c3e50;
+  position: relative;
+}
+
+.nav > .nav-header {
+  display: inline;
+}
+
+.nav > .nav-header > .nav-title {
+  display: inline-block;
+  font-size: 22px;
+  color: #eaedff;
+  padding: 10px 10px 10px 10px;
+}
+
+.nav > .nav-btn {
+  display: none;
+}
+
+.nav > .nav-links {
+  display: inline;
+  float: right;
+  font-size: 18px;
+}
+
+.nav > .nav-links > a {
+  display: inline-block;
+  padding: 13px 10px 13px 10px;
+  text-decoration: none;
+  color: #efefef;
+}
+
+.nav > .nav-links > a:hover {
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.nav > #nav-check {
+  display: none;
+}
+
+@media (max-width:600px) {
+  .nav > .nav-btn {
+    display: inline-block;
+    position: absolute;
+    right: 0px;
+    top: 0px;
+  }
+  .nav > .nav-btn > label {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    padding: 13px;
+  }
+  .nav > .nav-btn > label:hover,.nav  #nav-check:checked ~ .nav-btn > label {
+    background-color: rgba(0, 0, 0, 0.3);
+  }
+  .nav > .nav-btn > label > span {
+    display: block;
+    width: 25px;
+    height: 10px;
+    border-top: 2px solid #eee;
+  }
+  .nav > .nav-links {
+    position: absolute;
+    display: block;
+    width: 100%;
+    background-color: #333;
+    height: 0px;
+    transition: all 0.3s ease-in;
+    overflow-y: hidden;
+    top: 50px;
+    left: 0px;
+  }
+  .nav > .nav-links > a {
+    display: block;
+    width: 100%;
+  }
+  .nav > #nav-check:not(:checked) ~ .nav-links {
+    height: 0px;
+  }
+  .nav > #nav-check:checked ~ .nav-links {
+    height: calc(100vh - 50px);
+    overflow-y: auto;
+  }
+}
+
+.heading>h1{
+  align-items: center;
+  font-weight: bolder;
+  font-size: xx-large;
+  text-align: center;
+}
+.heading>p{
+  text-align: center;
+}
+/* Container for pricing cards */
+.pricing-cards {
+  display: flex;
+  justify-content: center; /* Centers the cards horizontally */
+  align-items: center;    /* Aligns the cards vertically if needed */
+  gap: 2rem;              /* Adds space between the cards */
+  padding: 2rem;          /* Adds padding around the container */
+}
+
+/* Individual pricing card */
+.pricing-card {
+  width: 300px;          
+  padding: 1.5rem;        /* Adds padding inside the card */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Adds a subtle shadow for a lifted effect */
+  border-radius: 8px;     /* Slight rounding of corners */
+  background: #f8f9fa;    /* Background color for cards */
+  transition: background-color 0.3s ease; /* Smooth transition for background color */
+}
+
+/* Hover effect for card background */
+.pricing-card:hover {
+  background: black; /* Change background color on hover */
+  color: #f8f9fa;
+  
+}
+.card:hover{
+  background: black;
+  color: white;
+  transition: 0.5s;
+}
+
+/* Styling for horizontal rules */
+hr.first {
+  background: #d6d4d3;
+  height: 0.15rem;
+  border: none;
+}
+
+hr.second {
+  background: #1b1b1b;
+  height: 0.25rem;
+  border: none;
+}
+
+/* Title styling */
+h3 {
+  color: #1b1b1b;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  letter-spacing: 0.063rem;
+  transition: color 0.3s ease;
+}
+
+
+/* Price styling */
+.card-price {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+  font-weight: bold;
+  color: inherit;
+  margin: 1.5rem 0;
+  transition: color 0.3s ease;
+}
+
+
+.pricing-card:hover h3,.card:hover ul
+.pricing-card:hover .card-price {
+  color: white; /* Change text color on hover */
+  background: #1b1b1b;
+}
+
+/* Currency symbol styling */
+.card-price span {
+  color: #1b1b1b;
+  font-size: 1.1rem;
+  margin-right: 0.6rem;
+  transition: color 0.3s ease;
+}
+
+/* Ensure currency symbol color changes to white on hover */
+/* .pricing-card:hover .card-price span {
+  color: white;
+}
+ */
+/* Button styling */
+.card-btn {
+  background: #d6d4d3;
+  color: #1b1b1b;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 0.9rem;
+  padding: 0.5rem 1.8rem;
+  display: inline-block;
+  transition: opacity 0.3s ease-in, background-color 0.3s ease, color 0.3s ease;
+  visibility: hidden;
+  opacity: 0;
+  text-align: center;
+  border-radius: 4px; /* Rounded button edges */
+}
+
+/* Hover effect for card button */
+.pricing-card:hover .card-btn {
+  background-color: #1b1b1b;
+  color: white;
+  visibility: visible;
+  opacity: 1;
+}

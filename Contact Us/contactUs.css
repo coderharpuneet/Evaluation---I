@@ -1,0 +1,28 @@
+body {
+    background: url("contactForm.png");
+    color: #fff;
+  }
+  
+  .container {
+    padding: 4rem;
+  }
+  
+  .form-control {
+    background-color: #222;
+    border: none;
+    border-bottom: 1px solid #666;
+    color: #fff;
+  }
+  #image{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid black;
+    background: #1b1b1b;
+    flex-direction: column;
+  }
+  #image p{
+    padding-top: 60px;
+    color: aliceblue;
+    font-size: 30px;
+  }

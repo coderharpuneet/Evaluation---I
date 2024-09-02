@@ -7,6 +7,7 @@
 body {
   margin: 0px;
   font-family: 'segoe ui';
+  background: #ffdf96;
 }
 
 .nav {
@@ -128,9 +129,14 @@ body {
 
 /* Hover effect for card background */
 .pricing-card:hover {
-  background-color: black; /* Change background color on hover */
+  background: black; /* Change background color on hover */
   color: #f8f9fa;
   
+}
+.card:hover{
+  background: black;
+  color: white;
+  transition: 0.5s;
 }
 
 /* Styling for horizontal rules */
@@ -163,12 +169,12 @@ h3 {
   justify-content: center;
   font-size: 3rem;
   font-weight: bold;
-  color: #1b1b1b;
+  color: inherit;
   margin: 1.5rem 0;
   transition: color 0.3s ease;
 }
 
-Hover effect for card title and price
+
 .pricing-card:hover h3,.card:hover ul
 .pricing-card:hover .card-price {
   color: white; /* Change text color on hover */

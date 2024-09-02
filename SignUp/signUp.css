@@ -89,3 +89,27 @@ a:hover {
     border-color: #8f0a1a; /* contrast color to signup button */
     box-shadow: 0 0 0 0.2rem rgba(143, 10, 26, 0.25); /* optional box shadow */
   }
+  #Google{
+    background-color: #333333;
+    transition: 0.5s;
+  }
+#Google:hover{
+    background-color: red;
+    transition: 0.5s ease-in;
+}
+#Facebook{
+    background-color: #333333;
+    transition: 0.5s;
+}
+#Facebook:hover{
+    background-color: #316FF6;
+    transition: 0.5s ease-in;
+}
+#Yahoo{
+    background-color: #333333;
+    transition: 0.5s;
+}
+#Yahoo:hover{
+    background-color: #6000D3;
+    transition: 0.5s;
+}

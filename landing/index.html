@@ -3,49 +3,225 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Verbocity - Your favourite language learning platform</title>
+    <title>Verbocity - Your Favourite Language Learning Platform</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    
-    <script src="https://kit.fontawesome.com/628c8d2499.js" crossorigin="anonymous"></script>
-
-    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="shortcut icon" href="favbg.jpeg" type="image/x-icon">
 </head>
 <body>
-    <!-- The video -->
-<div class="bgvideo"><video autoplay muted loop id="myVideo">
-    <source src="bgvid1.mp4" type="video/mp4">
-  </video>
-  <!-- Optional: some overlay text to describe the video -->
-<div class="content">
-    <p>Verbocity</p>
-    <h1>We Speak <br>Fluently</h1>
-    <p>Wanna learn more? Scroll down</p></div></div>
-    <div class="slide">
-        <h2>Featured Languages</h2>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos sapiente, commodi ipsa nihil ratione consequatur voluptas laborum natus nostrum vitae neque mollitia veritatis illo tempora perferendis dicta molestiae omnis porro, deleniti quo voluptate maxime sunt magni laboriosam. Explicabo amet veniam vitae, obcaecati fugit blanditiis doloribus cum quia laudantium, quas culpa.</p>
+
+    <header>
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-lg fixed-top navbar-scroll">
+          <div class="container-fluid">
+            <a class="navbar-brand" href="#!"><img src="favicon.png" height="90px"></a>
+            <button class="navbar-toggler" type="button" data-mdb-toggle="collapse"
+              data-mdb-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+              aria-label="Toggle navigation">
+              <i class="fas fa-bars"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav me-auto">
+                <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href="#!">Home</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" style="color: #003049;" href="#!">Languages</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" style="color: #003049;" href="#!">Login</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" style="color: #003049;" href="#!">Signup</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link"style="color: #003049;" href="#!">Contact Us</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link"style="color: #003049;" href="#!">Pricing</a>
+                </li>
+              </ul>
+              <ul class="navbar-nav d-flex flex-row">
+                <li class="nav-item me-3 me-lg-0">
+                  <a class="nav-link" href="#!">
+                    <i class="fas fa-shopping-cart"></i>
+                  </a>
+                </li>
+                <li class="nav-item me-3 me-lg-0">
+                  <a class="nav-link" href="#!">
+                    <i class="fab fa-twitter"></i>
+                  </a>
+                </li>
+                <li class="nav-item me-3 me-lg-0">
+                  <a class="nav-link" href="#!">
+                    <i class="fab fa-instagram"></i>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+        <!-- Navbar -->
+
+
+    <div class="video-parallax">
+        <video autoplay muted loop id="background-video">
+            <source src="ladingvideo1.mp4" type="video/mp4">
+        </video>
+        <div class="content">
+            <h1 class="display-3">We Speak Fluently.</h1>
+            <p class="lead">Wanna Learn More? Scroll Down.</p>
+        </div>
     </div>
-    <nav id="menu">
-        <div class="menu-item">
-            <div class="menu-text">
-                <a href="#">Products</a>
+
+    <div class="container py-5">
+         <!-- Topic Cards -->
+    <div id="cards_landscape_wrap-2">
+        <div class="container">
+            <div class="row">
+                <h2 style="text-align: center; padding-right: 300px;">Why Verbocity?</h2>
+                <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                    <a href="">
+                        <div class="card-flyer">
+                            <div class="text-box">
+                                <div class="image-box">
+                                    <img src="https://cdn.pixabay.com/photo/2018/03/30/15/11/deer-3275594_960_720.jpg" alt="" />
+                                </div>
+                                <div class="text-container">
+                                    <h6>Comprehensive Resources</h6>
+                                    <p>Access cheatsheets, guides, and more to aid your language learning journey.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                    <a href="">
+                        <div class="card-flyer">
+                            <div class="text-box">
+                                <div class="image-box">
+                                    <img src="https://cdn.pixabay.com/photo/2018/04/09/19/55/low-poly-3305284_960_720.jpg" alt="" />
+                                </div>
+                                <div class="text-container">                                    
+                                    <h6>User-Friendly Interface</h6>
+                                    <p>Navigate easily through our website designed to enhance your learning experience.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                    <a href="">
+                        <div class="card-flyer">
+                            <div class="text-box">
+                                <div class="image-box">
+                                    <img src="https://cdn.pixabay.com/photo/2018/04/06/13/46/poly-3295856_960_720.png" alt="" />
+                                </div>
+
+                                <div class="text-container">
+                                    <h6>Learn at Your Pace</h6>
+                                   <p>Our tools and resources let you learn languages at your own pace.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3"></div>
             </div>
         </div>
-        <div class="menu-item highlight">
-            <div class="menu-text">
-                <a href="#">Services</a>
+    </div>
+    </div>
+
+
+    <section id="unique-section" class="container-fluid" style="color: white; background-color: #D7B4F3;">
+        <div class="row w-100">
+            <!-- Image on the Left -->
+            <div class="col-md-6 p-0">
+                <img id="unique-image" src="poc.png" alt="Landing Image">
+            </div>
+            <!-- Text on the Right -->
+            <div id="unique-content" class="col-md-6 d-flex flex-column justify-content-center">
+                <h1>It's been proven.</h1>
+                <p>Learning a new language has it's benefits, whether it be improved memory or creativity. It's not us, it's the professors of Cambridge saying this. Don't believe us? <a href="https://www.cambridge.org/elt/blog/2022/04/29/learning-language-changes-your-brain/">Check it out!</a> </p>
+                
             </div>
         </div>
-        <div class="menu-item highlight">
-            <div class="menu-text">
-                <a href="#">Support</a>
+    </section>
+
+    
+    <div class="slider">
+        <h2 class="slidetext">
+            Check out our featured languages!
+        </h2>
+        <div class="sli">
+        <img src="esperanto.png" alt="">
+        <img src="france.webp" alt="">
+        <img src="uk.png" alt="">
+        <img src="denmark.webp" alt="">
+        <img src="netherlands.png" alt="">
+        <img src="norway.webp" alt="">
+        <img src="portugal.png" alt="">
+        <img src="india.webp" alt="">
+        <img src="italy.svg" alt="">
+        <img src="spain.svg" alt="">
+    </div>
+    <div class="sli">
+        <img src="esperanto.png" alt="">
+        <img src="france.webp" alt="">
+        <img src="uk.png" alt="">
+        <img src="denmark.webp" alt="">
+        <img src="netherlands.png" alt="">
+        <img src="norway.webp" alt="">
+        <img src="portugal.png" alt="">
+        <img src="india.webp" alt="">
+        <img src="italy.svg" alt="">
+        <img src="spain.svg" alt="">
+    </div>
+</div>
+
+<section id="unique-50vh-section" class="container-fluid">
+    <h2>Satisfied? Come Join Us!</h2>
+    <button id="unique-button" class="btn">Let's Go!</button>
+</section>
+
+
+    <footer>
+    <div class="container-fluid mt-5">
+        <div class="card mx-5">
+            <div class="row mb-4">
+                <div class="col-md-4 col-sm-4 col-xs-4">
+                    <div class="footer-text pull-left">
+                        <div class="d-flex">
+                            <img src="favicon.png" height="180px">
+                            
+                    <p class="card-text" >Verbocity is a project submitted by Harpuneet Singh and Kanika Prabhakar as a part of the 5 credit course titled "Front End Engineering -2" in Chitkara University.</p>
+                  
+                        </div>
+                        </div>
+                </div>
+                <div class="col-md-2 col-sm-2 col-xs-2"></div>
+                <div class="col-md-2 col-sm-2 col-xs-2"></div>
+                <div class="col-md-2 col-sm-2 col-xs-2">
+                    <ul class="card-text">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Login</a></li>
+                    <li><a href="#">Signup</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-2 col-sm-2 col-xs-2">
+                    <ul class="card-text">
+                        <li><a href="#">Languages</a></li>
+                        <li><a href="#">Pricing</a></li>
+                        <li><a href="#">Contact Us</a> </li>
+                    </ul>
+                </div>
             </div>
+            <div class="divider mb-4"> </div>
         </div>
-        <div class="menu-item">
-            <div class="menu-text">
-                <a href="#">Community</a>
-            </div>
-        </div>`
-    </nav>
- 
+    </div>
+    </footer>
+
+
+
 </body>
 </html>

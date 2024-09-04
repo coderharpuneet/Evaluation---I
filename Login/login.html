@@ -15,14 +15,12 @@
     <div class="main" >
         <div id="demo" class="carousel slide" data-ride="carousel">
 
-            <!-- Indicators -->
             <ul class="carousel-indicators">
               <li data-target="#demo" data-slide-to="0" class="active"></li>
               <li data-target="#demo" data-slide-to="1"></li>
               <li data-target="#demo" data-slide-to="2"></li>
             </ul>
           
-            <!-- The slideshow -->
             <div class="carousel-inner">
               <div class="carousel-item active">
                 <img src="verbocityLOgo1.png" alt="" width="165px" height="152px">
@@ -42,7 +40,6 @@
               </div>
             </div>
           
-            <!-- Left and right controls -->
             <a class="carousel-control-prev" href="#demo" data-slide="prev">
               <span class="carousel-control-prev-icon"></span>
             </a>
@@ -68,11 +65,28 @@
 
         <p><input type="checkbox">Remember Me &nbsp;<a href="#">Forget Password</a></p>
 
-        <button id="btn">Login</button>
+        <button id="btn" data-bs-toggle="modal" data-bs-target="#sendModal">Login</button>
 
         <p>Don't have an account? <a href="../SignUp/signUp.html" class="signUp">Sign up</a></p>
             </form>
           </div>
     </div>
+    <div class="modal fade" id="sendModal" tabindex="-1" aria-labelledby="sendModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+          <div class="modal-content">
+              <div class="modal-header">
+                  
+                   <h5 class="modal-title" id="sendModalLabel">Thank you!!</h5>  
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                  <p>Thank you for logging in.</p>
+              </div>
+              <div class="modal-footer">
+                  <a href="file:///C:/Users/ACER/OneDrive/Desktop/GharDukaan/GharDukaan1/main.html" class="btn btn-primary" style="background-color: rgb(88, 94, 144);">Return to home</a>
+              </div>
+          </div>
+      </div>
+  </div>
 </body>
 </html>

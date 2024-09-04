@@ -9,7 +9,15 @@ body {
   font-family: 'segoe ui';
   
 }
-
+.mon {
+  color: #e23f12;
+}
+.week{
+  color: #fabe4d;
+}
+.year{
+  color: #53bcd8;
+}
 .nav {
   height: 50px;
   width: 100%;
@@ -108,38 +116,36 @@ body {
 .heading>p{
   text-align: center;
 }
-/* Container for pricing cards */
 .pricing-cards {
   display: flex;
-  justify-content: center; /* Centers the cards horizontally */
-  align-items: center;    /* Aligns the cards vertically if needed */
-  gap: 2rem;              /* Adds space between the cards */
-  padding: 2rem;          /* Adds padding around the container */
+  justify-content: center; 
+  align-items: center;    
+  gap: 2rem;             
+  padding: 2rem;         
 }
 
-/* Individual pricing card */
 .pricing-card {
   width: 300px;          
-  padding: 1.5rem;        /* Adds padding inside the card */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Adds a subtle shadow for a lifted effect */
-  border-radius: 8px;     /* Slight rounding of corners */
-  background: #f8f9fa;    /* Background color for cards */
-  transition: background-color 0.3s ease; /* Smooth transition for background color */
+  padding: 1.5rem;        
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+  border-radius: 8px;  
+  background: #f8f9fa;    
+  transition: background-color 0.3s ease; 
 }
 
-/* Hover effect for card background */
+
 .pricing-card:hover {
-  background: black; /* Change background color on hover */
+  background: #1b1b1b; 
   color: #f8f9fa;
   
 }
 .card:hover{
-  background: black;
+  background: #1b1b1b;
   color: white;
   transition: 0.5s;
 }
 
-/* Styling for horizontal rules */
+
 hr.first {
   background: #d6d4d3;
   height: 0.15rem;

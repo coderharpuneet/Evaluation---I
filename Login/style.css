@@ -30,7 +30,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-wrap: wrap; /* This ensures elements wrap to the next line if needed */
+  flex-wrap: wrap; 
 }
 
 #demo {
@@ -69,7 +69,7 @@ body {
   flex-direction: column;
   margin: 0 20px;
   border-radius: 40px;
-  padding: 20px; /* Added padding for better mobile experience */
+  padding: 20px; 
 }
 
 .login h2 {
@@ -164,11 +164,10 @@ p > a:hover {
   transition: 2s;
 }
 
-/* Media Queries for Responsiveness */
 @media (max-width: 992px) {
   .main {
-      flex-direction: column; /* Stack the carousel and login form vertically */
-      height: auto; /* Let the height be flexible */
+      flex-direction: column; 
+      height: auto; 
   }
 
   #demo {
@@ -184,7 +183,7 @@ p > a:hover {
   }
 
   #demo i {
-      font-size: 80px; /* Reduce icon size for smaller screens */
+      font-size: 80px; 
       padding-top: 100px;
   }
 

@@ -1,33 +1,39 @@
-body{
+body {
     background: #3d418b;
 }
+
 .navbar-brand {
     font-size: 24px;
     font-weight: bold;
 }
+
 .progress-circle {
     position: absolute;
     right: 20px;
     top: 10px;
 }
+
 .sidebar {
     background-color: #f8f9fa;
     height: 100vh;
-    overflow-y: auto; 
-    position: fixed; 
+    overflow-y: auto;
+    position: fixed;
     top: 0;
     left: 0;
     padding-top: 20px;
-    width: 25%; 
+    width: 25%;
 }
+
 .main-content {
-    margin-left: 25%; 
+    margin-left: 25%;
     padding: 20px;
 }
+
 .sidebar ul {
     list-style: none;
     padding-left: 0;
 }
+
 .sidebar ul li {
     padding: 10px;
     margin-bottom: 10px;
@@ -35,46 +41,80 @@ body{
     border-radius: 10px;
     transition: 0.5s;
 }
-.sidebar ul li.active  {
+
+.sidebar ul li.active {
     background-color: rgba(255, 166, 0, 0.816);
-    
 }
-.sidebar ul li.active a{
+
+.sidebar ul li.active a {
     color: #f8f9fa !important;
-    
 }
+
 .sidebar ul li:hover {
     background-color: #ff6d3a;
     transition: 0.5s;
     transform: scale(1.02);
-    
 }
-.sidebar ul li a{
+
+.sidebar ul li a {
     color: black;
-    
 }
+
 .video-container {
     margin-top: 20px;
 }
+
 .sidebar nav ul {
     padding: 0px 10px;
     border-radius: 10px;
 }
-button:hover{
+
+button:hover {
     transition: 0.5s;
     transform: scale(1.2);
 }
-.buttons{
+
+.buttons {
     padding-top: 25px;
     display: flex;
     align-content: center;
     justify-content: center;
+}
 
-}
-button{
+button {
     transition: 0.5s;
-    
 }
-.courseName h4{
-    color: aliceblue;
+
+.courseName {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-right: 20px;
+}
+
+.circle {
+    position: relative; /* Relative to the heading section */
+    right: 0;
+    display: grid;
+    place-items: center;
+    width: 60px; /* Smaller size */
+    height: 60px; /* Smaller size */
+    background: #fff;
+    border-radius: 50%;
+    z-index: 1000;
+}
+
+.circle .circle_inner {
+    display: grid;
+    place-items: center;
+    width: 50px; /* Adjust inner circle size */
+    height: 50px;
+    background: #1d1e22;
+    border-radius: 50%;
+    font-size: 14px; /* Smaller text */
+}
+
+.circle.crimson {
+    color: crimson;
+    background: conic-gradient(crimson 0 100%, #303238 100% 100%);
 }

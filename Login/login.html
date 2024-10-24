@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Verbocity Login</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.slim.min.js"></script>
@@ -50,43 +50,68 @@
           </div>
           <div class="login">
             <h2>Login</h2>
-            <form action="login.php" method="post">
-        <div class="form">
-            <input type="email" required>
-            <label for="">Email</label>
-            <i class="fa-regular fa-envelope"></i>
-            </div>
-    
-        <div class="form">
-            <input type="password" required>
-            <label for="">Password</label>
-            <i class="fa-solid fa-lock"></i>
-        </div>
-
-        <p><input type="checkbox">Remember Me &nbsp;<a href="#">Forget Password</a></p>
-
-        <button id="btn" data-bs-toggle="modal" data-bs-target="#sendModal">Login</button>
-
-        <p>Don't have an account? <a href="../SignUp/signUp.html" class="signUp">Sign up</a></p>
+            <form id="loginForm" action="https://sheetdb.io/api/v1/4aqfpwxn70397" method="post">
+                <div class="form">
+                    <input type="email" name="Email" id="uname" required>
+                    <label for="uname">Email</label>
+                    <i class="fa-regular fa-envelope"></i>
+                </div>
+        
+                <div class="form">
+                    <input type="password" name="Password" id="password" required>
+                    <label for="password">Password</label>
+                    <i class="fa-solid fa-lock"></i>
+                </div>
+        
+                <p><input type="checkbox">Remember Me &nbsp;<a href="#">Forget Password</a></p>
+        
+                <input type="submit" value="Contact Now" id="btn">
+                <p>Don't have an account? <a href="../SignUp/signUp.html" class="signUp">Sign up</a></p>
             </form>
-          </div>
+        </div>
+        
     </div>
+
+    <!-- Modal -->
     <div class="modal fade" id="sendModal" tabindex="-1" aria-labelledby="sendModalLabel" aria-hidden="true">
       <div class="modal-dialog">
           <div class="modal-content">
               <div class="modal-header">
-                  
-                   <h5 class="modal-title" id="sendModalLabel">Thank you!!</h5>  
+                  <h5 class="modal-title" id="sendModalLabel">Thank you!!</h5>  
                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
               <div class="modal-body">
                   <p>Thank you for logging in.</p>
               </div>
               <div class="modal-footer">
-                  <a href="file:///C:/Users/ACER/OneDrive/Desktop/GharDukaan/GharDukaan1/main.html" class="btn btn-primary" style="background-color: rgb(88, 94, 144);">Return to home</a>
+                  <a href="../cheatsheets/dutch/index.html" class="btn btn-primary" style="background-color: rgb(88, 94, 144);">Go to Home</a>
               </div>
           </div>
       </div>
   </div>
+
+  <!-- JavaScript -->
+  <script>
+    var form = document.getElementById('loginForm');
+    form.addEventListener("submit", function(e) {
+        e.preventDefault(); 
+        var formData = new FormData(form);
+
+        // Make the POST request using fetch
+        fetch(form.action, {
+            method: "POST",
+            body: formData
+        })
+        .then(response => response.json()) // Parse JSON response
+        .then(data => {
+            
+            $('#sendModal').modal('show');
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
+    });
+  </script>
+
 </body>
 </html>

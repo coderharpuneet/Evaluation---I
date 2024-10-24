@@ -6,9 +6,9 @@
 
 body {
     height: 100%;
-    background: url("https://thebhwgroup.com/sites/default/images/welcome-translated-map.jpg");
+    background: url("background.jpg");
     background-repeat: no-repeat;
-    background-size: cover; /* Ensures background covers entire screen */
+    background-size: cover; 
     backdrop-filter: blur(10px);
     display: grid;
     place-items: center;

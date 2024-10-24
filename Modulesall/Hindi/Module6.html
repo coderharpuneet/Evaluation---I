@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CricketQuiz</title>
+    <link rel="stylesheet" href="quiz.css">
+    <script src="https://kit.fontawesome.com/0391e00170.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+
+<div class="sidebar">
+    <nav>
+        <a class="navbar-brand" href="#">Verbocity</a>
+        <ul>
+            <li><i class="fa-solid fa-check cbutton" style="padding-right: 15px; font-size: large; color: green;"></i><a href="Module1.html" style="color: black; text-decoration: none;">Module 01<br><small style="padding-left: 28px;">Learn Dutch For Beginners</small></a></li>
+            <li><i class="fa-solid fa-check cbutton" style="padding-right: 15px; font-size: large; color: green;"></i><a href="Module2.html" style="color: black; text-decoration: none;">Module 02<br><small style="padding-left: 28px;">Dutch Greetings</small></a></li>
+            <li><i class="fa-solid fa-check cbutton" style="padding-right: 15px; font-size: large; color: green;"></i><a href="Module3.html" style="color: black; text-decoration: none;">Module 03<br><small style="padding-left: 28px;">Introducing yourself in Dutch</small></a></li>
+            <li><i class="fa-solid fa-check cbutton" style="padding-right: 15px; font-size: large; color: green;"></i><a href="Module4.html" style="color: black; text-decoration: none;">Module 04<br><small style="padding-left: 28px;">Where are you from and where do you live</small></a></li>
+            <li><i class="fa-solid fa-check cbutton" style="padding-right: 15px; font-size: large; color: green;"></i><a href="Module5.html" style="color: black; text-decoration: none;">Module 05<br><small style="padding-left: 28px;">Dutch Sounds and the Alphabets</small></a></li>
+            <li class="active"><i class="fa-solid fa-play cbutton" style="padding-right: 15px; font-size: large;"></i><a href="Module6.html" style="color: black; text-decoration: none;">Module 06<br><small style="padding-left: 28px;">Dutch Quiz</small></a></li>
+            
+        </ul>
+        
+    </nav>
+</div>
+
+    <div class="main-content">
+        <div class="d-flex justify-content-between align-items-center courseName">
+            <h4>Swedish Course</h4>
+            
+        </div>
+
+
+
+
+    <div class="app">
+        <h1>CricketQuiz</h1>
+        <div class="timer" id="timer">Time Left: 10s</div>
+        <div class="quiz">
+            <h2 id="question">Question goes..</h2>
+            <div id="answer-buttons">
+                <button class="btn">Answer 1</button>
+                <button class="btn">Answer 2</button>
+                <button class="btn">Answer 3</button>
+                <button class="btn">Answer 4</button>
+            </div>
+            <button id="next-btn">Next</button>
+        </div>
+    </div>
+    <script src="https://www.youtube.com/iframe_api"></script>
+    <script>
+        const questions = [
+    {
+        question: "‘apple’ का हिंदी अनुवाद क्या है?",
+        answers: [
+            {text: "सेब", correct: true},
+            {text: "केला", correct: false},
+            {text: "संतरा", correct: false},
+            {text: "अनार", correct: false}
+        ]
+    },
+    {
+        question: "‘Good morning’ को हिंदी में कैसे कहते हैं?",
+        answers: [
+            {text: "सुप्रभात", correct: true},
+            {text: "शुभ रात्रि", correct: false},
+            {text: "नमस्ते", correct: false},
+            {text: "धन्यवाद", correct: false}
+        ]
+    },
+    {
+        question: "‘cat’ का हिंदी शब्द क्या है?",
+        answers: [
+            {text: "बिल्ली", correct: true},
+            {text: "कुत्ता", correct: false},
+            {text: "चिड़िया", correct: false},
+            {text: "मछली", correct: false}
+        ]
+    },
+    {
+        question: "‘Thank you’ को हिंदी में कैसे कहते हैं?",
+        answers: [
+            {text: "धन्यवाद", correct: true},
+            {text: "कृपया", correct: false},
+            {text: "स्वागत है", correct: false},
+            {text: "अलविदा", correct: false}
+        ]
+    },
+    {
+        question: "हिंदी में ‘साइकिल’ का अंग्रेजी अर्थ क्या है?",
+        answers: [
+            {text: "Bicycle", correct: true},
+            {text: "Car", correct: false},
+            {text: "Train", correct: false},
+            {text: "Bus", correct: false}
+        ]
+    }
+];
+
+const questionElement = document.getElementById("question");
+const answerButtons = document.getElementById("answer-buttons");
+const nextButton = document.getElementById("next-btn");
+
+let currentQuestionIndex = 0;
+let score = 0;
+let timer;
+let timerExpired = false; 
+
+function startQuiz() {
+    currentQuestionIndex = 0;
+    score = 0;
+    nextButton.innerHTML = "Next";
+    showQuestion();
+}
+
+function showQuestion() {
+    resetstate();
+    let currentQuestion = questions[currentQuestionIndex];
+    let questionNo = currentQuestionIndex + 1;
+    questionElement.innerHTML = questionNo + ". " + currentQuestion.question;
+
+    const timerDisplay = document.getElementById("timer");
+    timerDisplay.textContent = "Time Left: 10s";
+
+    currentQuestion.answers.forEach((answer) => {
+        const button = document.createElement("button");
+        button.innerHTML = answer.text;
+        button.classList.add("btn");
+        answerButtons.appendChild(button);
+        if (answer.correct) {
+            button.dataset.correct = answer.correct;
+        }
+        button.addEventListener("click", selectAnswer);
+    });
+
+    let timeLeft = 10;
+    timer = setInterval(() => {
+        timeLeft--;
+        timerDisplay.textContent = "Time Left: " + timeLeft + "s";
+
+        if (timeLeft === 0) {
+            timerExpired = true;
+            selectAnswer({ target: null });
+        }
+    }, 1000);
+}
+
+
+
+function resetstate() {
+    nextButton.style.display = "none";
+    while (answerButtons.firstChild) {
+        answerButtons.removeChild(answerButtons.firstChild);
+    }
+    clearTimeout(timer);
+    timerExpired = false; 
+}
+
+function selectAnswer(e) {
+    clearTimeout(timer);
+
+    const selectedButton = e ? e.target : null;
+    const isCorrect = selectedButton && selectedButton.dataset.correct === "true";
+
+    if (isCorrect) {
+        selectedButton.classList.add("correct");
+        score++;
+    } else if (timerExpired) {
+    } else {
+        selectedButton.classList.add("incorrect");
+    }
+
+    Array.from(answerButtons.children).forEach((button) => {
+        if (button.dataset.correct === "true") {
+            button.classList.add("correct");
+        }
+        button.disabled = true;
+    });
+
+    nextButton.style.display = "block";
+}
+
+function showScore() {
+    resetstate();
+    if(score<=3){
+        questionElement.innerHTML = `Oops!!  You scored ${score} out of ${questions.length} marks. Better Luck Next Time`;   
+    }else{
+        questionElement.innerHTML = `Congratulations!! You scored ${score} out of ${questions.length} marks.`;
+    }
+
+    const timerDisplay = document.getElementById("timer");
+    timerDisplay.style.display = "none";
+
+    nextButton.innerHTML = "Exit";
+    nextButton.style.display = "block";
+    if (score >= 2) {
+        const playButton = document.querySelector(".cbutton");
+        playButton.classList.remove("fa-play");
+        playButton.classList.add("fa-check");
+        playButton.classList.add("text-success");
+    }
+}
+
+function handleNextButton() {
+    currentQuestionIndex++;
+    if (currentQuestionIndex < questions.length) {
+        showQuestion();
+    } else {
+        showScore();
+    }
+}
+
+nextButton.addEventListener("click", () => {
+    if (currentQuestionIndex < questions.length) {
+        handleNextButton();
+    } else {
+        startQuiz();
+    }
+});
+
+startQuiz();
+
+
+
+
+
+
+
+
+        let player;
+        let videoWatched = false;
+        const currentModule = 'module1'; // Unique identifier for this module
+
+        // Load completion status from localStorage
+        function loadModuleCompletionStatus() {
+            const isCompleted = localStorage.getItem(currentModule) === 'completed';
+            if (isCompleted) {
+                updateCurrentModuleToTick();
+            }
+        }
+
+        // YouTube API Setup
+        function onYouTubeIframeAPIReady() {
+            player = new YT.Player('ytplayer', {
+                events: {
+                    'onStateChange': onPlayerStateChange
+                }
+            });
+        }
+
+        function onPlayerStateChange(event) {
+            if (event.data == YT.PlayerState.PLAYING && !videoWatched) {
+                const videoDuration = player.getDuration();
+                const interval = setInterval(function() {
+                    const currentTime = player.getCurrentTime();
+                    const percentageWatched = (currentTime / videoDuration) * 100;
+                    
+                    if (percentageWatched >= 80 && !videoWatched) {
+                        videoWatched = true;
+                        clearInterval(interval);
+                        updateCurrentModuleToTick();
+                        localStorage.setItem(currentModule, 'completed');
+                    }
+                }, 1000); // Check every second
+            }
+        }
+
+        // Update play button to green tick
+        function updateCurrentModuleToTick() {
+            const currentModuleButton = document.querySelector(".current-module");
+            if (currentModuleButton) {
+                currentModuleButton.classList.remove("fa-play");
+                currentModuleButton.classList.add("fa-check", "text-success");
+            }
+        }
+
+        // Checkbox logic for manual marking
+        const check = document.querySelector("#checked");
+        check.addEventListener("change", function() {
+            if (check.checked) {
+                updateCurrentModuleToTick();
+                localStorage.setItem(currentModule, 'completed');
+            } else {
+                const currentModuleButton = document.querySelector(".current-module");
+                if (currentModuleButton) {
+                    currentModuleButton.classList.remove("fa-check", "text-success");
+                    currentModuleButton.classList.add("fa-play");
+                    localStorage.removeItem(currentModule);
+                }
+            }
+        });
+
+        // Load status on page load
+        document.addEventListener("DOMContentLoaded", function() {
+            loadModuleCompletionStatus();
+        });
+
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CricketQuiz</title>
+    <link rel="stylesheet" href="quiz.css">
+    <script src="https://kit.fontawesome.com/0391e00170.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+<div id="complete">
+    <input type="checkbox" id="completed-checkbox">
+    <label for="completed-checkbox" id="lfc">
+        <p>Mark as completed</p>
+    </label>
+</div>
+
+<div class="sidebar">
+    <nav>
+        <a class="navbar-brand" href="#">Verbocity</a>
+        <ul>
+            <li><i class="fa-solid fa-play cbutton" style="padding-right: 15px; font-size: large;"></i><a href="Module1.html" style="color: black; text-decoration: none;">Module 01<br><small>Learn Dutch For Beginners</small><span id="mod1-check" class="checkmark"></span></a></li>
+            <li><i class="fa-solid fa-play cbutton" style="padding-right: 15px; font-size: large;"></i><a href="Module2.html" style="color: black; text-decoration: none;">Module 02<br><small>Dutch Greetings</small><span id="mod2-check" class="checkmark"></span></a></li>
+            <li><i class="fa-solid fa-play cbutton" style="padding-right: 15px; font-size: large;"></i><a href="Module3.html" style="color: black; text-decoration: none;">Module 03<br><small>Introducing yourself in Dutch</small><span id="mod3-check" class="checkmark"></span></a></li>
+            <li><i class="fa-solid fa-play cbutton" style="padding-right: 15px; font-size: large;"></i><a href="Module4.html" style="color: black; text-decoration: none;">Module 04<br><small>Where are you from and where do you live</small><span id="mod4-check" class="checkmark"></span></a></li>
+            <li><i class="fa-solid fa-play cbutton" style="padding-right: 15px; font-size: large;"></i><a href="Module5.html" style="color: black; text-decoration: none;">Module 05<br><small>Dutch Sounds and the Alphabets</small><span id="mod5-check" class="checkmark"></span></a></li>
+            <li class="active"><i class="fa-solid fa-play cbutton" style="padding-right: 15px; font-size: large;"></i><a href="Module6.html" style="color: black; text-decoration: none;">Module 06<br><small style="padding-left: 28px;">Dutch Quiz</small><span id="mod6-check" class="checkmark"></span></a></li>
+        </ul>
+    </nav>
+</div>
+
+<div class="main-content">
+    <div class="d-flex justify-content-between align-items-center courseName">
+        <h4>Swedish Course</h4>
+    </div>
+
+    <div class="app">
+        <h1>CricketQuiz</h1>
+        <div class="progress">
+            <p id="progress">Progress: 0%</p>
+        </div>
+        <div class="timer" id="timer">Time Left: 10s</div>
+        <div class="quiz">
+            <h2 id="question">Question goes..</h2>
+            <div id="answer-buttons">
+                <button class="btn">Answer 1</button>
+                <button class="btn">Answer 2</button>
+                <button class="btn">Answer 3</button>
+                <button class="btn">Answer 4</button>
+            </div>
+            <button id="next-btn">Next</button>
+        </div>
+    </div>
+
+    <script>
+        const questions = [
+            {
+                question: "Wat is de Nederlandse vertaling van het woord 'apple'?",
+                answers: [
+                    {text: "Appel", correct: true},
+                    {text: "Peer", correct: false},
+                    {text: "Banaan", correct: false},
+                    {text: "Sinaasappel", correct: false}
+                ]
+            },
+            // other questions...
+            {
+        question: "Hoe zeg je 'Good morning' in het Nederlands?",
+        answers: [
+            {text: "Goedemorgen", correct: true},
+            {text: "Goedenavond", correct: false},
+            {text: "Hallo", correct: false},
+            {text: "Goedendag", correct: false}
+        ]
+    },
+    {
+        question: "Wat is het Nederlandse woord voor 'cat'?",
+        answers: [
+            {text: "Kat", correct: true},
+            {text: "Hond", correct: false},
+            {text: "Vogel", correct: false},
+            {text: "Vis", correct: false}
+        ]
+    },
+    {
+        question: "Hoe zeg je 'Thank you' in het Nederlands?",
+        answers: [
+            {text: "Dank je wel", correct: true},
+            {text: "Alsjeblieft", correct: false},
+            {text: "Tot ziens", correct: false},
+            {text: "Hallo", correct: false}
+        ]
+    },
+    {
+        question: "Wat betekent het Nederlandse woord 'fiets' in het Engels?",
+        answers: [
+            {text: "Bicycle", correct: true},
+            {text: "Car", correct: false},
+            {text: "Train", correct: false},
+            {text: "Bus", correct: false}
+        ]
+    }
+        ];
+
+        const questionElement = document.getElementById("question");
+        const answerButtons = document.getElementById("answer-buttons");
+        const nextButton = document.getElementById("next-btn");
+        const progressElement = document.getElementById("progress");
+        const completedCheckbox = document.getElementById("completed-checkbox");
+
+        let currentQuestionIndex = 0;
+        let score = 0;
+        let timer;
+        let timerExpired = false;
+        let totalQuestions = questions.length;
+
+        function startQuiz() {
+            currentQuestionIndex = 0;
+            score = 0;
+            updateProgress();
+            showQuestion();
+        }
+
+        function showQuestion() {
+            resetState();
+            let currentQuestion = questions[currentQuestionIndex];
+            questionElement.innerHTML = currentQuestionIndex + 1 + ". " + currentQuestion.question;
+
+            currentQuestion.answers.forEach((answer) => {
+                const button = document.createElement("button");
+                button.innerHTML = answer.text;
+                button.classList.add("btn");
+                answerButtons.appendChild(button);
+                if (answer.correct) {
+                    button.dataset.correct = answer.correct;
+                }
+                button.addEventListener("click", selectAnswer);
+            });
+
+            startTimer();
+        }
+
+        function resetState() {
+            nextButton.style.display = "none";
+            while (answerButtons.firstChild) {
+                answerButtons.removeChild(answerButtons.firstChild);
+            }
+            clearTimeout(timer);
+            timerExpired = false;
+        }
+
+        function selectAnswer(e) {
+            clearTimeout(timer);
+            const selectedButton = e.target;
+            const isCorrect = selectedButton.dataset.correct === "true";
+
+            if (isCorrect) {
+                selectedButton.classList.add("correct");
+                score++;
+            } else if (timerExpired) {
+                // Timer expired, no answer selected
+            } else {
+                selectedButton.classList.add("incorrect");
+            }
+
+            Array.from(answerButtons.children).forEach((button) => {
+                if (button.dataset.correct === "true") {
+                    button.classList.add("correct");
+                }
+                button.disabled = true;
+            });
+
+            nextButton.style.display = "block";
+            updateProgress();
+        }
+
+        function startTimer() {
+            let timeLeft = 10;
+            document.getElementById("timer").textContent = "Time Left: " + timeLeft + "s";
+            timer = setInterval(() => {
+                timeLeft--;
+                document.getElementById("timer").textContent = "Time Left: " + timeLeft + "s";
+                if (timeLeft === 0) {
+                    timerExpired = true;
+                    selectAnswer({ target: null });
+                }
+            }, 1000);
+        }
+
+        function updateProgress() {
+            const progressPercentage = Math.round(((currentQuestionIndex + 1) / totalQuestions) * 100);
+            progressElement.innerHTML = `Progress: ${progressPercentage}%`;
+        }
+
+        function handleNextButton() {
+            currentQuestionIndex++;
+            if (currentQuestionIndex < questions.length) {
+                showQuestion();
+            } else {
+                showScore();
+            }
+        }
+
+        function showScore() {
+            resetState();
+            questionElement.innerHTML = `You scored ${score} out of ${totalQuestions}`;
+            nextButton.innerHTML = "Restart";
+            nextButton.style.display = "block";
+            document.getElementById("timer").style.display = "none";
+            if (score >= 2) {
+                const playButton = document.querySelector(".cbutton");
+                playButton.classList.remove("fa-play");
+                playButton.classList.add("fa-check");
+                playButton.classList.add("text-success");
+            }
+        }
+
+        nextButton.addEventListener("click", () => {
+            if (currentQuestionIndex < questions.length) {
+                handleNextButton();
+            } else {
+                startQuiz();
+            }
+        });
+
+        // Add checkmark when "Mark as completed" is checked
+        completedCheckbox.addEventListener("change", function() {
+            const cbutton = document.querySelectorAll(".cbutton");
+            if (this.checked) {
+                checkmarks.forEach(checkmark => {
+        playButton.classList.remove("fa-play");
+        playButton.classList.add("fa-check");
+        playButton.classList.add("text-success");
+                });
+            } else {
+                checkmarks.forEach(checkmark => {
+                    checkmark.innerHTML = "";
+                });
+            }
+        });
+
+        startQuiz();
+    </script>
+</body>
+</html> -->

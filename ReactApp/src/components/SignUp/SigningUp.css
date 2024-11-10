@@ -1,0 +1,115 @@
+body {
+    background-color: #1a1a1a;
+    color: #ffffff;
+    font-family: 'Arial', sans-serif;
+    height: 100%;
+}
+
+.main {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100vh;
+}
+
+.leftSide {
+    background-color: #000000;
+    padding: 50px;
+    margin-left: 50px;
+    width: 50%;
+}
+
+.heading img {
+    margin-right: 10px;
+}
+
+.planInfo {
+    margin: 20px 0;
+    display: flex;
+    align-items: flex-start;
+}
+
+.planInfo i {
+    font-size: 2em;
+    margin-right: 10px;
+}
+
+.planInfo p {
+    margin: 0;
+}
+
+.rightSide {
+    padding: 20px;
+    width: 50%;
+}
+
+.card {
+    background-color: #333333;
+    color: #ffffff;
+    border: none;
+    border-radius: 10px;
+    height: 675px;
+}
+
+.form-control {
+    background-color: #222222;
+    color: #ffffff;
+    border: 1px solid #555555;
+}
+
+.form-control::placeholder {
+    color: #999999;
+}
+
+.form-control:focus {
+    border-color: #ffcc00;
+    box-shadow: none;
+}
+
+.btn-warning {
+    background-color: #ffcc00;
+    color: #000000;
+}
+
+.btn-dark {
+    background-color: #444444;
+    border: none;
+    color: #ffffff;
+}
+
+.btn-dark i {
+    margin-right: 5px;
+}
+
+hr {
+    border-color: #555555;
+}
+
+a {
+    color: #ffcc00;
+}
+
+a:hover {
+    color: #e0a800;
+}
+
+.btn {
+    cursor: pointer;
+    transition: transform 0.5s;
+}
+
+.btn:hover {
+    transform: scale(1.1);
+}
+
+#Google:hover {
+    background-color: red;
+}
+
+#Facebook:hover {
+    background-color: blue;
+}
+
+#Yahoo:hover {
+    background-color: purple;
+}

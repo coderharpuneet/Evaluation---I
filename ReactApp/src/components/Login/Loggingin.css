@@ -1,0 +1,250 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+  }
+  
+  html, body, .main{
+    background: url("Frame1.png");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+  }
+  
+  body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    margin: 0;
+  }
+  
+  .main {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    height: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap; 
+  }
+  
+  #demo {
+    width: 50%;
+    height: 100%;
+    margin: 0 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+  
+  #demo h2, p {
+    width: 100%;
+    margin: 20px 0;
+  }
+  
+  #demo p {
+    padding-bottom: 50px;
+  }
+  
+  #demo i {
+    font-size: 100px;
+    padding-top: 150px;
+  }
+  
+  .login {
+    width: 30%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(10px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin: 0 20px;
+    border-radius: 40px;
+    padding: 20px; 
+  }
+  
+  .login h2 {
+    color: white;
+    text-transform: uppercase;
+    padding: 20px 0;
+    font-size: 2em;
+    margin: 0;
+  }
+  
+  .form {
+    position: relative;
+    width: 100%;
+    margin: 30px 0;
+    background-color: rgba(0, 0, 0, 0.3);
+  }
+  
+  .form input {
+    width: 100%;
+    height: 50px;
+    background: none;
+    outline: none;
+    font-size: 1.2em;
+    color: white;
+    padding: 0 30px 0 10px;
+    margin: 0;
+  }
+  
+  .form label {
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
+    font-size: 1.2em;
+    color: white;
+    transition: 0.5s;
+    margin: 0;
+  }
+  
+  input:focus ~ label,
+  input:valid ~ label {
+    top: -5px;
+  }
+  
+  .form i {
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+    font-size: 1.2em;
+    color: white;
+    margin: 0;
+  }
+  
+  form > p {
+    text-align: center;
+    color: white;
+    padding: 10px 0;
+    margin: 0;
+  }
+  
+  p > a {
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    margin: 0;
+  }
+  
+  p > a:hover {
+    text-decoration: underline;
+    font-style: italic;
+  }
+  
+  #btn {
+    width: 100%;
+    height: 50px;
+    border-radius: 40px;
+    border: none;
+    font-size: 1.5em;
+    text-transform: uppercase;
+    font-weight: 600;
+    margin: 5px 0;
+    padding-top: 5px;
+  }
+  
+  #btn:hover {
+    background: rgba(0, 0, 0, 0.3);
+    color: white;
+  }
+  
+  .signUp {
+    transition: 2s;
+  }
+  
+  @media (max-width: 992px) {
+    .main {
+        flex-direction: column; 
+        height: auto; 
+    }
+  
+    #demo {
+        width: 100%;
+        height: auto;
+        margin-bottom: 20px;
+    }
+  
+    .login {
+        width: 100%;
+        height: auto;
+        margin: 0;
+    }
+  
+    #demo i {
+        font-size: 80px; 
+        padding-top: 100px;
+    }
+  
+    #demo h2, p {
+        font-size: 1.5em;
+    }
+  
+    .login h2 {
+        font-size: 1.8em;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .login {
+        width: 90%;
+    }
+  
+    #demo {
+        width: 90%;
+    }
+  
+    #demo h2, p {
+        font-size: 1.3em;
+    }
+  
+    .login h2 {
+        font-size: 1.5em;
+    }
+  
+    .form input {
+        font-size: 1.1em;
+    }
+  
+    #btn {
+        font-size: 1.3em;
+    }
+  }
+  
+  @media (max-width: 576px) {
+    .login, #demo {
+        width: 100%;
+    }
+  
+    #demo i {
+        font-size: 60px;
+    }
+  
+    #demo h2, p {
+        font-size: 1.1em;
+    }
+  
+    .login h2 {
+        font-size: 1.2em;
+    }
+  
+    .form input {
+        font-size: 1em;
+    }
+  
+    #btn {
+        font-size: 1.2em;
+    }
+  }
+  

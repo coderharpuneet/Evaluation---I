@@ -14,13 +14,13 @@
             <a class="navbar-brand" href="#">Verbocity</a>
             <ul>
                 <li>
-                    <i class="fa-solid fa-check cbutton" style="padding-right: 15px; font-size: large;color: green;"></i>
+                    <i class="fa-solid fa-play cbutton" style="padding-right: 15px; font-size: large;"></i>
                     <a href="Module1.html" style="color: black; text-decoration: none;">
                         Module 01<br>
                         <small>Learn Dutch For Beginners</small>
                     </a>
                 </li>
-                <li class="active">
+                <li>
                     <i class="fa-solid fa-check cbutton current-module" style="padding-right: 15px; font-size: large;color: green;"></i>
                     <a href="Module2.html" style="color: black; text-decoration: none;">
                         Module 02<br>
@@ -41,7 +41,7 @@
                         <small>Where are you from and where do you live</small>
                     </a>
                 </li>
-                <li>
+                <li class="active">
                     <i class="fa-solid fa-play cbutton" style="padding-right: 15px; font-size: large;"></i>
                     <a href="Module5.html" style="color: black; text-decoration: none;">
                         Module 05<br>
@@ -63,40 +63,36 @@
         <div class="d-flex justify-content-between align-items-center courseName">
             <h4>Dutch Course</h4>
 
-            <!-- Progress Circle -->
             <div class="circle crimson">
                 <div id="circle_inner" style="color: white;">95%</div>
             </div>
         </div>
 
-        <!-- Video Section -->
         <div class="video-container" style="justify-content: right;">
             <iframe id="ytplayer" width="100%" height="500" src="https://www.youtube.com/embed/Dbv79prOMEk?enablejsapi=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
         </div>
 
-        <!-- Buttons Section -->
         <div class="buttons">
             <button style="background-color: #ff6d3a; border-radius: 5px; padding: 10px 25px;" class="cheatbtn">
-                <a style="text-decoration: none; color: white;" href="../cheatsheets/dutch/index.html">View Cheatsheets</a>
+                <a style="text-decoration: none; color: white;" href="../../cheatsheets/dutch/index.html">View Cheatsheets</a>
             </button>
         </div>
     </div>
 
-    <!-- Load YouTube IFrame API -->
+    
     <script>
         let player;
         let videoWatched = false;
-        const currentModule = 'module6'; // Unique identifier for this module
+        const currentModule = 'module6'; 
     
         function loadModuleCompletionStatus() {
             const isCompleted = localStorage.getItem(currentModule) === 'completed';
-            console.log('Is Module Completed?', isCompleted); // Debug statement to check status
+            console.log('Is Module Completed?', isCompleted); 
             if (isCompleted) {
                 updateCurrentModuleToTick();
             }
         }
     
-        // YouTube API Setup
         function onYouTubeIframeAPIReady() {
             player = new YT.Player('ytplayer', {
                 events: {
@@ -111,7 +107,7 @@
                 const interval = setInterval(function () {
                     const currentTime = player.getCurrentTime();
                     const percentageWatched = (currentTime / videoDuration) * 100;
-                    console.log(`Watched: ${percentageWatched}%`); // Debug statement to check progress
+                    console.log(`Watched: ${percentageWatched}%`);
     
                     if (percentageWatched >= 80 && !videoWatched) {
                         videoWatched = true;
@@ -119,7 +115,7 @@
                         updateCurrentModuleToTick();
                         localStorage.setItem(currentModule, 'completed');
                     }
-                }, 1000); // Check every second
+                }, 1000); 
             }
         }
     
@@ -135,11 +131,11 @@
             loadModuleCompletionStatus();
         });
     
-        // Corrected percentage calculation for each module
+        
         let totalModules = 6;
         let circleInner = document.getElementById("circle_inner");
     
-        // Map the currentModule to the correct percentage dynamically
+        
         const moduleProgress = {
             'module1': 1,
             'module2': 2,
@@ -154,6 +150,7 @@
             circleInner.innerText = `${progressPercentage}%`;
         }
     </script>
+    
     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>

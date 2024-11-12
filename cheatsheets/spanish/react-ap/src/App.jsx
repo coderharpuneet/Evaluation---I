@@ -5,63 +5,28 @@ import React from 'react'
 import './App.css'
 
 function App() {
-  const flashcards = document.querySelectorAll('.flashcard');
-let currentIndex = 0; // Track the current flashcard index
-
-function updateFlashcardVisibility() {
-    flashcards.forEach((flashcard, index) => {
-        flashcard.style.display = index === currentIndex ? 'block' : 'none'; // Show current card only
-    });
-}
-
-flashcards.forEach((flashcard) => {
-    const prevButton = flashcard.querySelector('.prev-btn');
-    const nextButton = flashcard.querySelector('.next-btn');
-    const flashcardContent = flashcard.querySelector('.flashcard-content');
-
-    let isFlipped = false;
-
-    prevButton.addEventListener('click', () => {
-        if (isFlipped) {
-            flashcardContent.classList.remove('flipped');
-            isFlipped = false;
-        } else {
-            // Move to previous flashcard
-            if (currentIndex > 0) {
-                currentIndex--;
-                updateFlashcardVisibility();
-                isFlipped = false; // Reset flip state when changing card
-                flashcardContent.classList.remove('flipped'); // Ensure the new card is not flipped
-            }
-        }
-    });
-
-    nextButton.addEventListener('click', () => {
-        if (isFlipped) {
-            flashcardContent.classList.remove('flipped');
-            isFlipped = false;
-        } else {
-            // Move to next flashcard
-            if (currentIndex < flashcards.length - 1) {
-                currentIndex++;
-                updateFlashcardVisibility();
-                isFlipped = false; // Reset flip state when changing card
-                flashcardContent.classList.remove('flipped'); // Ensure the new card is not flipped
-            }
-        }
-    });
-
-    flashcard.addEventListener('mouseover', () => {
-        flashcardContent.classList.add('flipped');
-    });
-
-    flashcard.addEventListener('mouseout', () => {
-        flashcardContent.classList.remove('flipped');
-    });
-});
-
-// Initialize the visibility
-updateFlashcardVisibility();
+    const flashcardsData = [
+        { front: "What is the Dutch for 'Hello'?", back: "Hallo" },
+        { front: "What is the Dutch for 'Thank you'?", back: "Dank je wel" },
+        { front: "What is the Dutch for 'Goodbye'?", back: "Tot ziens" },
+        { front: "What is the Dutch for 'Please'?", back: "Alstublieft" },
+        { front: "What is the Dutch for 'Good morning'?", back: "Goedemorgen" },
+        { front: "What is the Dutch for 'Good night'?", back: "Goedenacht" },
+        { front: "What is the Dutch for 'How are you?'", back: "Hoe gaat het met je?" },
+        { front: "What is the Dutch for 'I love you'?", back: "Ik hou van je" },
+        { front: "What is the Dutch for 'Excuse me'?", back: "Excuseer me" },
+        { front: "What is the Dutch for 'See you later'?", back: "Tot later" },
+      ];
+    
+      const [currentIndex, setCurrentIndex] = useState(0);
+    
+      function handlePrev() {
+        setCurrentIndex((prevIndex) => (prevIndex > 0 ? prevIndex - 1 : prevIndex));
+      }
+    
+      function handleNext() {
+        setCurrentIndex((prevIndex) => (prevIndex < flashcardsData.length - 1 ? prevIndex + 1 : prevIndex));
+      }
   return (
     <>
       <div>
@@ -151,96 +116,17 @@ updateFlashcardVisibility();
 
       
     <div className="flashcard-container">
-        <div className="flashcard">
-            <div className="flashcard-content">
-                <div className="front">What is the Dutch for "Hello"?</div>
-                <div className="back">Hallo</div>
-            </div>
-            <button className="prev-btn">Previous</button>
-            <button className="next-btn">Next</button>
+          {flashcardsData.map((card, index) => (
+            <Flashcard
+              key={index}
+              frontText={card.front}
+              backText={card.back}
+              isActive={index === currentIndex}
+              onPrev={handlePrev}
+              onNext={handleNext}
+            />
+          ))}
         </div>
-
-        <div className="flashcard">
-            <div className="flashcard-content">
-                <div className="front">What is the Dutch for "Thank you"?</div>
-                <div className="back">Dank je wel</div>
-            </div>
-            <button className="prev-btn">Previous</button>
-            <button className="next-btn">Next</button>
-        </div>
-
-        <div className="flashcard">
-            <div className="flashcard-content">
-                <div className="front">What is the Dutch for "Goodbye"?</div>
-                <div className="back">Tot ziens</div>
-            </div>
-            <button className="prev-btn">Previous</button>
-            <button className="next-btn">Next</button>
-        </div>
-
-        <div className="flashcard">
-            <div className="flashcard-content">
-                <div className="front">What is the Dutch for "Please"?</div>
-                <div className="back">Alstublieft</div>
-            </div>
-            <button className="prev-btn">Previous</button>
-            <button className="next-btn">Next</button>
-        </div>
-
-        <div className="flashcard">
-            <div className="flashcard-content">
-                <div className="front">What is the Dutch for "Good morning"?</div>
-                <div className="back">Goedemorgen</div>
-            </div>
-            <button className="prev-btn">Previous</button>
-            <button className="next-btn">Next</button>
-        </div>
-
-        <div className="flashcard">
-            <div className="flashcard-content">
-                <div className="front">What is the Dutch for "Good night"?</div>
-                <div className="back">Goedenacht</div>
-            </div>
-            <button className="prev-btn">Previous</button>
-            <button className="next-btn">Next</button>
-        </div>
-
-        <div className="flashcard">
-            <div className="flashcard-content">
-                <div className="front">What is the Dutch for "How are you?"</div>
-                <div className="back">Hoe gaat het met je?</div>
-            </div>
-            <button className="prev-btn">Previous</button>
-            <button className="next-btn">Next</button>
-        </div>
-
-        <div className="flashcard">
-            <div className="flashcard-content">
-                <div className="front">What is the Dutch for "I love you"?</div>
-                <div className="back">Ik hou van je</div>
-            </div>
-            <button className="prev-btn">Previous</button>
-            <button className="next-btn">Next</button>
-        </div>
-
-        <div className="flashcard">
-            <div className="flashcard-content">
-                <div className="front">What is the Dutch for "Excuse me"?</div>
-                <div className="back">Excuseer me</div>
-            </div>
-            <button className="prev-btn">Previous</button>
-            <button className="next-btn">Next</button>
-        </div>
-
-        <div className="flashcard">
-            <div className="flashcard-content">
-                <div className="front">What is the Dutch for "See you later"?</div>
-                <div className="back">Tot later</div>
-            </div>
-            <button className="prev-btn">Previous</button>
-            <button className="next-btn">Next</button>
-        </div>
-    </div>
         </div>
     </>
   )
